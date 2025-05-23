@@ -1,0 +1,125 @@
+# QR Code Detection and Evaluation with OpenCV
+
+## Overview
+
+This project is a **QR code detection and evaluation system** built with **OpenCV** and **C++**. It provides multiple modes to interact with and test QR code detection algorithms. You can use the camera to detect QR codes in real-time, scan a folder of images, evaluate QR codes against ground truth data, or generate synthetic QR codes for testing purposes.
+
+### Key Features:
+- **Camera Mode**: Real-time QR code detection using a webcam.
+- **Folder Scan Mode**: Batch processing of images to detect QR codes and evaluate the results.
+- **Evaluation Mode**: Evaluation of a single image's QR code detection against ground truth.
+- **Generate Mode**: Generation of synthetic QR code images with various transformations for testing purposes.
+
+---
+
+## Why We Picked This Project
+
+Our group selected this open-source project for several reasons:
+
+1. **Learning Opportunity**: We were keen on learning **OpenCV**, a powerful computer vision library. This project provided a great hands-on opportunity to dive deep into image processing and computer vision concepts.
+2. **QR Code Detection**: QR codes are widely used in many applications today, and understanding how to detect and decode them using OpenCV was an interesting challenge.
+3. **Real-World Application**: The ability to test and generate synthetic QR codes using various transformations allows us to explore **real-world scenarios** of image distortion (blur, noise, rotation, etc.) and the robustness of the detection algorithm.
+
+---
+
+## What We Learned
+
+During the development of this project, we gained experience with the following:
+
+1. **OpenCV Basics**:
+   - Working with **image manipulation** functions such as `imshow()`, `cvtColor()`, and `VideoCapture()`.
+   - Using **matrices** (`cv::Mat`) for image representation and manipulation.
+   - Understanding the importance of **image preprocessing** (e.g., binarization) before performing complex tasks like QR code detection.
+
+2. **QR Code Detection**:
+   - Understanding how QR codes are detected in images.
+   - Using custom-built classes (like `CodeFinder`) to detect and draw QR codes.
+   - Learning how to evaluate the quality of the detection using **ground truth** images and **pixel-by-pixel comparison**.
+
+3. **Evaluation Techniques**:
+   - Evaluating the **accuracy** of a detection algorithm by comparing it to known ground truth data.
+   - Implementing **percentage similarity** metrics to assess how well the algorithm performs.
+
+4. **Synthetic Data Generation**:
+   - Creating synthetic data for testing purposes, including applying transformations like **rotation, noise, blur**, and **perspective distortion** on QR code images.
+
+5. **File System Operations**:
+   - Handling file input/output operations using custom classes for scanning directories, loading images, saving results, and organizing outputs into subdirectories.
+
+6. **CMake and Build Systems**:
+   - We learned how to use **CMake** to configure and build C++ projects.
+   - We understood how to set up include directories, link libraries like OpenCV, and manage multi-source file compilation using `CMakeLists.txt`.
+
+7. **Project Structure and Collaboration**:
+   - We learned how to organize large codebases into **headers and source files**.
+   - We gained experience collaborating in a group, using tools like **Git** and IDEs (like VSCode or CLion).
+
+---
+
+## Usage
+
+### Requirements
+- **OpenCV**: Ensure that OpenCV is installed and linked correctly with your project.
+- **C++11 or higher**: The project uses features like `auto`, `nullptr`, and lambda expressions.
+- **CMake**: For building the project efficiently across different platforms.
+
+### Modes
+The program supports multiple modes. You can specify the mode by passing command-line arguments.
+
+1. **Camera Mode** (`argc == 1`):
+   - Starts the webcam and continuously detects QR codes.
+   - Command: `./<executable>`
+
+2. **Folder Scan Mode** (`argc == 2`):
+   - Scans a folder for images, detects QR codes, and saves the results.
+   - Command: `./<executable> <folder-path>`
+
+3. **Evaluation Mode** (`argc == 3`):
+   - Evaluates a single image against a ground truth image and saves the result.
+   - Command: `./<executable> <input-path> <output-path>`
+
+4. **Generate Mode** (`argc == 4` and `-generate` flag):
+   - Generates synthetic QR code images for testing, applying transformations like rotation, blur, noise, etc.
+   - Command: `./<executable> -generate <ground-truth-folder-path> <output-folder-path>`
+
+### Example Usage:
+```bash
+./QRCodeDetection /path/to/folder
+./QRCodeDetection /path/to/input-image /path/to/output-folder
+./QRCodeDetection -generate /path/to/ground-truth /path/to/output-folder
+```
+
+---
+
+## Ground Truth Data
+
+The program uses **ground truth images** for evaluation, which are the known "correct" QR code images. These images are compared to the output generated by the detection algorithm to calculate how accurately the QR codes are detected.
+
+- Ground truth images should be stored in a folder like `00_ground_truth/`.
+- The filenames of the generated images are expected to match the ground truth files, allowing the program to automatically locate the corresponding ground truth for evaluation.
+
+---
+
+## Folder Structure
+
+```
+/QRCodeDetection
+    ├── main.cpp
+    ├── Header/
+    │   ├── CodeFinder.hpp
+    │   ├── Filesystem.hpp
+    │   ├── Generator.hpp
+    │   └── ImageBinarization.hpp
+    ├── 00_ground_truth/
+    │   ├── qr1.png
+    │   └── qr2.png
+    ├── ScanPositive/
+    └── ScanNegative/
+```
+
+---
+
+## Conclusion
+
+By working on this project, we not only gained hands-on experience with **OpenCV** but also learned how to develop a **real-world application** involving QR code detection and testing. It was a great way to explore image processing techniques, **project building with CMake**, and understand the evaluation process in computer vision tasks.
+
