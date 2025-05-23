@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\neelk\Documents\GitHub\QR-Code-Scanner\src\Source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\neelk\Documents\GitHub\QR-Code-Scanner\src\Source\ImageBinarization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\neelk\Documents\GitHub\QR-Code-Scanner\src\Source\Filesystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\neelk\Documents\GitHub\QR-Code-Scanner\src\Source\Generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\neelk\Documents\GitHub\QR-Code-Scanner\src\Source\CodeFinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\neelk\Documents\GitHub\QR-Code-Scanner\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6DDCF1C9-FB3A-34C3-9E8C-DD7CBDAA51EA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
